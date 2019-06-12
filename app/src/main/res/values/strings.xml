@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AppChat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="java_title">App chat with Firebase java</string>
+    <string name="java_decription">Làm app java để chat giữa 2 người. giuwsp thuộc tiện trong việc chat online bla bla bla bla bla bl</string>
+
+    <string name="ios_title">App chat with Firebase java</string>
+    <string name="ios_decription">Làm app java để chat giữa 2 người. giuwsp thuộc tiện trong việc chat online bla bla bla bla bla bl</string>
+
+    <string name="android_title">App chat with Firebase java</string>
+    <string name="android_decription">Làm app java để chat giữa 2 người. giuwsp thuộc tiện trong việc chat online bla bla bla bla bla bl</string>
+
+</resources>
