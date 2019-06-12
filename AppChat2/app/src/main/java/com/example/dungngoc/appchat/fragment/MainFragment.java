@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.dungngoc.appchat.OnSkipNextListener;
 import com.example.dungngoc.appchat.R;
 import com.example.dungngoc.appchat.adapter.IntroAdapter;
 import com.example.dungngoc.appchat.model.Course;
@@ -17,9 +18,10 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements OnSkipNextListener {
 
-
+    private  ViewPager viewPager;
+    private OnSkipNextListener callback;
     public MainFragment() {
         // Required empty public constructor
     }
@@ -34,11 +36,13 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        callback=this;
 
-        IntroFlagment javafragment = IntroFlagment.newInstance();
-        IntroFlagment androidfragment =IntroFlagment.newInstance();
-        IntroFlagment iosfragment =  IntroFlagment.newInstance();
+
+        IntroFlagment javafragment = IntroFlagment.newInstance(callback);
+        IntroFlagment androidfragment =IntroFlagment.newInstance(callback);
+        IntroFlagment iosfragment =  IntroFlagment.newInstance(callback);
         LoginRegisterFragment loginRegisterFragment = LoginRegisterFragment.newInstance();
 
         ArrayList<Fragment>arrayListFragment = new ArrayList<>();
@@ -61,4 +65,14 @@ public class MainFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClickSkip() {
+        viewPager.setCurrentItem(4, true);
+    }
+
+    @Override
+    public void onClickNext(int currentPage) {
+        viewPager.setCurrentItem(currentPage+1);
+
+    }
 }

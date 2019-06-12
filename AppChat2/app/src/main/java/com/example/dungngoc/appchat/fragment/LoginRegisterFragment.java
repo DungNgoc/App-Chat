@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.dungngoc.appchat.OnSkipNextListener;
 import com.example.dungngoc.appchat.R;
 
 /**
@@ -20,12 +21,15 @@ public class LoginRegisterFragment extends Fragment implements View.OnClickListe
     private TextView tvLogin;
     private TextView tvRegister;
     private EditText edtUserName;
+    private EditText edtEmail;
     private Button btn_LoginRegister;
+
     public LoginRegisterFragment() {
         // Required empty public constructor
     }
     public static LoginRegisterFragment newInstance(){
         LoginRegisterFragment loginRegisterFragment = new LoginRegisterFragment();
+
         return loginRegisterFragment;
     }
 
@@ -37,6 +41,7 @@ public class LoginRegisterFragment extends Fragment implements View.OnClickListe
         tvLogin= (TextView) view.findViewById(R.id.tv_login);
         tvRegister = (TextView) view.findViewById(R.id.tv_register);
         edtUserName = (EditText) view.findViewById(R.id.edt_username);
+        edtEmail = view.findViewById(R.id.edt_email);
         btn_LoginRegister = view.findViewById(R.id.bt_register);
         tvLogin.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
@@ -50,14 +55,14 @@ public class LoginRegisterFragment extends Fragment implements View.OnClickListe
             case R.id.tv_login:
                 tvLogin.setBackgroundResource(R.drawable.bg_loginregister_active);
                 tvRegister.setBackgroundResource(R.drawable.bg_loginregister_inactive);
-                edtUserName.setVisibility(View.GONE);
+                edtEmail.setVisibility(View.GONE);
                 btn_LoginRegister.setText("Login");
                 break;
 
             case  R.id.tv_register:
                 tvLogin.setBackgroundResource(R.drawable.bg_loginregister_inactive);
                 tvRegister.setBackgroundResource(R.drawable.bg_loginregister_active);
-                edtUserName.setVisibility(View.VISIBLE);
+                edtEmail.setVisibility(View.VISIBLE);
                 btn_LoginRegister.setText("Register");
                 break;
         }
